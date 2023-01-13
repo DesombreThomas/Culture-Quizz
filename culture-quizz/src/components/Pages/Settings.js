@@ -46,7 +46,7 @@ function Settings () {
 return (
    <div className='bg h-screen' style={{backgroundImage: `url(${bg}) `}}>
     <div className='flex flex-col items-center justify-center'>
-        <h1 className="flex justify-center text-5xl py-20 text-[#F8EE4F]">CultureQuizz</h1>
+        <h1 className="flex justify-center text-5xl py-20 text-[#F8EE4F]">Culture Quizz</h1>
             <div onSubmit={handleSubmit}>
                 <SelectFields option={response.trivia_categories} label="Category" />
                 <SelectFields option={difficultyOptions} label="Difficulty" />
