@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Settings from './Pages/Settings';
 import Questions from './Pages/Questions';
 import FinalScreen from './Pages/FinalScreen';
+import 'semantic-ui-css/semantic.min.css'
 
 
 function CultureQuizz() {
