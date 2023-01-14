@@ -1,9 +1,12 @@
+import { useDispatch } from 'react-redux'
 import { Form } from 'semantic-ui-react'
+import { changeAmountOfQuestions } from '../Actions';
 
 const TextField = () => {
 
-    const handleChange = () => {
-
+    const dispatch = useDispatch();
+    const handleChange = (evt) => {
+        dispatch(changeAmountOfQuestions(evt.target.value))
     }
 
     return (

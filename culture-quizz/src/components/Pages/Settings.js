@@ -4,11 +4,13 @@ import SelectFields from "../SelectFields";
 import bg from "../../assets/bg.png"
 import TextField from '../TextField';
 import useAxios from '../../hooks/useAxios';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Settings () {
     const {response, error, loading} = useAxios({ url: "/api_category.php"})
-    console.log(response);
+    const navigate = useNavigate();
 
     if(loading) {
         return (
@@ -39,8 +41,14 @@ function Settings () {
         { id: "boolean", name: "True or False"}
     ]
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (evt) => {
+        evt.preventDefault();
+    }
+
+    // Permet la redirection vers la page question lors du clic sur le bouton
+    const handleClick = (evt) => {
+        evt.preventDefault();
+        navigate(`/questions`);
     }
 
 return (
@@ -54,7 +62,7 @@ return (
                 <TextField />
             </div>
             <div className='p-10'>
-                <Button  color='violet'>Get Started !</Button>
+                <Button onClick={handleClick}  color='violet'>Get Started !</Button>
             </div>
     </div>
    </div> 
