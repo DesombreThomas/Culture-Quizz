@@ -100,9 +100,9 @@ function Questions() {
 
 
     return (
-      <div className='bg h-screen' style={{backgroundImage: `url(${bg}) `}}>
+      <div className='bg-question h-screen' style={{backgroundImage: `url(${bg}) `}}>
       <div className='flex flex-col items-center justify-center'>
-          <h1 className="flex justify-center text-5xl py-20 text-[#F8EE4F] title">Culture Quiz</h1>
+          <h1 className="flex justify-center text-8xl py-20 text-[#F8EE4F] title">Culture Quiz</h1>
               <div className="bg-slate-100 bg-opacity-75 shadow-md shadow-[#040c16] p-3 w-[80%]">
                <h2 className="text-center question"> Question {questionIndex + 1} </h2>
                   <p className="text-2xl font-semibold flex justify-center ">{decode(response.results[questionIndex].question)}</p>

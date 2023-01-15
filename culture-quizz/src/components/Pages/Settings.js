@@ -54,9 +54,9 @@ function Settings () {
 return (
    <div className='bg h-screen' style={{backgroundImage: `url(${bg}) `}}>
     <div className='flex flex-col items-center justify-center'>
-        <h1 className="title flex justify-center text-5xl py-20 text-[#F8EE4F]">Culture Quiz</h1>
+        <h1 className="title flex justify-center text-8xl py-20 text-[#F8EE4F]">Culture Quiz</h1>
         <h2 className='bg-slate-100 bg-opacity-75 shadow-md shadow-[#040c16] p-3 rounded settings'>Choose your settings !</h2>
-            <div className='bg-slate-100 bg-opacity-25 shadow-md shadow-[#040c16] p-3 w-[80%] rounded' onSubmit={handleSubmit}>
+            <div className='bg-slate-100 bg-opacity-50 shadow-md shadow-[#040c16] p-3 w-[80%] md:w-[50%] rounded' onSubmit={handleSubmit}>
                 <SelectFields option={response.trivia_categories} label="Category" />
                 <SelectFields option={difficultyOptions} label="Difficulty" />
                 <SelectFields option={typeOptions} label="Type" />
