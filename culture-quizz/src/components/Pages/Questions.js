@@ -1,10 +1,13 @@
 import bg from "../../assets/bg.png";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Segment, Dimmer, Loader, Advertisement } from 'semantic-ui-react'
 import useAxios from "../../hooks/useAxios";
 import { useSelector } from "react-redux";
 
 
+const getRandomInt = (max) => {
+   return Math.floor(Math.random() * Math.floor(max));
+}
 
 function Questions() {
 
@@ -39,8 +42,23 @@ function Questions() {
    const { response, loading, error } = useAxios({ url: apiUrl });
    console.log(response);
 
-   const [questionIndex, setQuestionIndex] = useState([0]);
+   const [questionIndex, setQuestionIndex] = useState(0);
+   const [options, setOptions] = useState([]);
    
+   useEffect(() => {
+      if(response?.results.length) {
+         const question = response.results[questionIndex];
+         let answers = [...question.incorrect_answers]
+         answers.splice(
+            getRandomInt(question.incorrect_answers.length),
+            0,
+            question.correct_answer
+         );
+         setOptions(answers)
+      }
+   }, [response, questionIndex]);
+
+ 
 
    if(loading) {
       return (
@@ -68,18 +86,11 @@ function Questions() {
               <div className="bg-slate-100 bg-opacity-75 shadow-md shadow-[#040c16] p-3 w-[80%]">
                <h2 className="text-center"> Question {questionIndex + 1} </h2>
                   <p className="text-2xl font-semibold flex justify-center ">{response.results[questionIndex].question}</p>
-                <div className="flex justify-center">
-                  <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Answer 1</button>
-               </div>
-               <div className="flex justify-center">
-                  <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Answer 2</button>
-               </div>
-               <div className="flex justify-center">
-                  <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Answer 3</button>
-              </div>
-              <div className="flex justify-center">
-                  <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Answer 4</button>
-              </div>
+                  {options.map((data, id) => (
+                      <div className="flex justify-center" key={id}>
+                        <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">{data}</button>
+                     </div>
+                  ))}
                <div>
                   <p className="font-semibold">Your score : 1/6 </p>
                </div>
