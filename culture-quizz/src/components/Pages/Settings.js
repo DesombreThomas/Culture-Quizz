@@ -37,7 +37,7 @@ function Settings () {
     ]
 
     const typeOptions = [
-        { id: "multiple", name: "Multiple Choices"},
+        { id: "multiple", name: "Multiple Choice"},
         { id: "boolean", name: "True or False"}
     ]
 
