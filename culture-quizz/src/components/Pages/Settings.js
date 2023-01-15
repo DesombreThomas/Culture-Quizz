@@ -55,7 +55,8 @@ return (
    <div className='bg h-screen' style={{backgroundImage: `url(${bg}) `}}>
     <div className='flex flex-col items-center justify-center'>
         <h1 className="flex justify-center text-5xl py-20 text-[#F8EE4F]">Culture Quizz</h1>
-            <div onSubmit={handleSubmit}>
+        <h2 className='bg-slate-100 bg-opacity-75 shadow-md shadow-[#040c16] p-3 rounded'>Choose your settings !</h2>
+            <div className='bg-slate-100 bg-opacity-25 shadow-md shadow-[#040c16] p-3 w-[80%] rounded' onSubmit={handleSubmit}>
                 <SelectFields option={response.trivia_categories} label="Category" />
                 <SelectFields option={difficultyOptions} label="Difficulty" />
                 <SelectFields option={typeOptions} label="Type" />
