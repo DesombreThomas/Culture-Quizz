@@ -1,10 +1,10 @@
 import { CHANGE_AMOUNT_OF_QUESTIONS, CHANGE_CATEGORY, CHANGE_DIFFICULTY, CHANGE_SCORE, CHANGE_TYPE } from "../Actions";
 
 const initialState = {
-    questions_category: 1,
+    questions_category: "",
     questions_difficulty: "",
     questions_type: "",
-    amount_of_questions: 10,
+    amount_of_questions: 50,
     score: 0,
 }
 
