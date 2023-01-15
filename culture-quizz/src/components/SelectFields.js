@@ -35,7 +35,7 @@ const SelectFields = (props) => {
                 <select value={value} onChange={handleChange}>
                     {option.map(( { id, name}) => ( 
 
-                    <option defaultValue={id} key={id}>{name}</option>
+                    <option value={id} key={id}>{name}</option>
                     ))}
                 </select>
             </Form>
