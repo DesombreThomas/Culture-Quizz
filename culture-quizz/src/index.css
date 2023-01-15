@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Luckiest+Guy&display=swap');
+
+
+  #root,
+   .answers,
+   .question, 
+   .settings,
+   .title,
+   .final {
+   font-family: 'Lora', serif ;
+  }
+
 
 .bg {
   background-repeat: no-repeat;

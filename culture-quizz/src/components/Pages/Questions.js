@@ -102,13 +102,13 @@ function Questions() {
     return (
       <div className='bg h-screen' style={{backgroundImage: `url(${bg}) `}}>
       <div className='flex flex-col items-center justify-center'>
-          <h1 className="flex justify-center text-5xl py-20 text-[#F8EE4F]">Culture Quizz</h1>
+          <h1 className="flex justify-center text-5xl py-20 text-[#F8EE4F] title">Culture Quiz</h1>
               <div className="bg-slate-100 bg-opacity-75 shadow-md shadow-[#040c16] p-3 w-[80%]">
-               <h2 className="text-center"> Question {questionIndex + 1} </h2>
+               <h2 className="text-center question"> Question {questionIndex + 1} </h2>
                   <p className="text-2xl font-semibold flex justify-center ">{decode(response.results[questionIndex].question)}</p>
                   {options.map((data, id) => (
                       <div className="flex justify-center" key={id}>
-                        <button type="button" onClick={handleClickAnswer} className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">{decode(data)}</button>
+                        <button type="button" onClick={handleClickAnswer} className="answers p-2 m-2  text-xl focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-5  dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">{decode(data)}</button>
                      </div>
                   ))}
                <div>
