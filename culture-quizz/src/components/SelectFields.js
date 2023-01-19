@@ -31,7 +31,7 @@ const SelectFields = (props) => {
     return (
      <div className="w-full h-auto">
             <Form className="flex flex-col flex-wrap w-full items-center">
-                <label className='py-4 m-2 text-2xl text-black font-semibold'>{label}</label>
+                <label className='py-4 m-2 md:text-2xl text-xl text-[#003554] font-semibold'>{label}</label>
                 <select value={value} onChange={handleChange}>
                     {option.map(( { id, name}) => ( 
 

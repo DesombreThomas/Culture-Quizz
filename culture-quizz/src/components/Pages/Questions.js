@@ -1,10 +1,9 @@
-import bg from "../../assets/bg.png";
 import React, { useEffect, useState } from 'react'
 import { Segment, Dimmer, Loader, Advertisement } from 'semantic-ui-react'
 import useAxios from "../../hooks/useAxios";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { changeScore } from "../../Actions";
+import { changeScore, changeAmountOfQuestions } from "../../Actions";
 import { decode } from "html-entities";
 
 
@@ -98,24 +97,33 @@ function Questions() {
    }
   };
 
+  const handleBackMenu = (evt) => {
+   evt.preventDefault()
+   dispatch(changeScore(0));
+   dispatch(changeAmountOfQuestions(50));
+   navigate(`/`);
+  }
+
 
     return (
-      <div className='bg-question h-screen' style={{backgroundImage: `url(${bg}) `}}>
+      <div className='h-screen background--custom'>
       <div className='flex flex-col items-center justify-center'>
-          <h1 className="flex justify-center text-8xl py-20 text-[#F8EE4F] title">Culture Quiz</h1>
-              <div className="bg-slate-100 bg-opacity-75 shadow-md shadow-[#040c16] p-3 w-[80%]">
-               <h2 className="text-center question"> Question {questionIndex + 1} </h2>
-                  <p className="text-2xl font-semibold flex justify-center ">{decode(response.results[questionIndex].question)}</p>
+          <h1 className="title flex justify-center md:text-8xl text-4xl p-10 text-[#003554]">Culture Quiz</h1>
+              <div className="bg-slate-100 bg-opacity-75 shadow-md shadow-[#040c16] p-5 m-10 w-[80%]">
+               <h2 className="text-center py-3 text-[#003554] question"> Question {questionIndex + 1} </h2>
+                  <p className="text-2xl py-2 font-semibold flex text-[#003554] justify-center ">{decode(response.results[questionIndex].question)}</p>
                   {options.map((data, id) => (
                       <div className="flex justify-center" key={id}>
                         <button type="button" onClick={handleClickAnswer} className="answers p-2 m-2  text-xl focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-5  dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">{decode(data)}</button>
                      </div>
                   ))}
                <div>
-                  <p className="font-semibold">Your score : {score} / {response.results.length} </p>
+                  <p className="font-semibold text-xl py-4 text-[#003554]">Your score : {score} / {response.results.length} </p>
                </div>
               </div>
-
+                  <div className='p-10'>
+                     <button type="button" onClick={handleBackMenu} className="answers p-2 m-2  text-xl focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-5  dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"> Back to Settings !</button>
+                  </div>
       </div>
      </div> 
     );

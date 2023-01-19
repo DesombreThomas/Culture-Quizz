@@ -15,32 +15,21 @@
   }
 
 
-.bg {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+.background--custom {
+  background: linear-gradient(90deg, #8d9976, #fafeec, #86ada7);
+  background-size: 300% 300%;
+  animation: gradient 6s alternate infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
 }
-
-@media screen and (max-width: 500px) {
-  .bg {
-    height: auto;
+@keyframes gradient {
+  0% {
+    background-position: 0%;
   }
-}
-
-.bg-question {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100%;
-}
-
-.bg-final {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100%;
+  100% {
+    background-position: 100%;
+  }
 }

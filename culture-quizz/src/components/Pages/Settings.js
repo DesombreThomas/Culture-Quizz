@@ -1,7 +1,6 @@
 import React from 'react'
-import { Button, Segment, Dimmer, Loader, Advertisement } from 'semantic-ui-react'
+import { Segment, Dimmer, Loader, Advertisement } from 'semantic-ui-react'
 import SelectFields from "../SelectFields";
-import bg from "../../assets/bg.png"
 import TextField from '../TextField';
 import useAxios from '../../hooks/useAxios';
 import { useNavigate } from 'react-router-dom';
@@ -52,18 +51,18 @@ function Settings () {
     }
 
 return (
-   <div className='bg h-screen' style={{backgroundImage: `url(${bg}) `}}>
-    <div className='flex flex-col items-center justify-center'>
-        <h1 className="title flex justify-center text-8xl py-20 text-[#F8EE4F]">Culture Quiz</h1>
-        <h2 className='bg-slate-100 bg-opacity-75 shadow-md shadow-[#040c16] p-3 rounded settings'>Choose your settings !</h2>
-            <div className='bg-slate-100 bg-opacity-50 shadow-md shadow-[#040c16] p-3 w-[80%] md:w-[50%] rounded' onSubmit={handleSubmit}>
+   <div className='bg h-screen background--custom'>
+    <div className='h-screen flex flex-col items-center justify-center'>
+        <h1 className="title flex justify-center md:text-8xl text-4xl p-10 text-[#003554] ">Culture Quiz</h1>
+        <h2 className=' md:text-3xl text-2xl text-purple-700 settings'>Choose your settings !</h2>
+            <div className='bg-slate-100 bg-opacity-25 shadow-md shadow-[#040c16] p-10 my-5 w-[80%] md:w-[50%] rounded' onSubmit={handleSubmit}>
                 <SelectFields option={response.trivia_categories} label="Category" />
                 <SelectFields option={difficultyOptions} label="Difficulty" />
                 <SelectFields option={typeOptions} label="Type" />
                 <TextField />
             </div>
             <div className='p-10'>
-                <Button onClick={handleClick}  color='violet'>Get Started !</Button>
+            <button type="button" onClick={handleClick} className="answers p-2 m-2  text-xl focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-5  dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"> Get Started !</button>
             </div>
     </div>
    </div> 
