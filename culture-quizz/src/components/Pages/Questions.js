@@ -42,10 +42,9 @@ function Questions() {
       apiUrl = apiUrl.concat(`&type=${questions_type}`);
    }
 
-   console.log(apiUrl);
 
    const { response, loading, error } = useAxios({ url: apiUrl });
-   console.log(response);
+
 
    const [questionIndex, setQuestionIndex] = useState(0);
    const [options, setOptions] = useState([]);
@@ -97,8 +96,7 @@ function Questions() {
    }
   };
 
-  const handleBackMenu = (evt) => {
-   evt.preventDefault()
+  const handleBackMenu = () => {
    dispatch(changeScore(0));
    dispatch(changeAmountOfQuestions(50));
    navigate(`/`);
